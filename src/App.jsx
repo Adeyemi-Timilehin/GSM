@@ -1,11 +1,26 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { Heart, Users, Cross, ExternalLink, ArrowRight, Star, Shield, Church, MessageCircle, UserPlus, Calendar, MapPin } from 'lucide-react'
+import { Heart, Users, Cross, Facebook, Instagram, Star, Shield, Church, MessageCircle, UserPlus, Calendar, MapPin } from 'lucide-react'
 import logoImage from './assets/logo.jpg'
-import heroImage from './assets/hero-image.jpg'
+
+
 import communityImage from './assets/community-image.jpg'
 import './App.css'
+
+// Custom TikTok Icon Component using Bootstrap Icons SVG
+const TikTokIcon = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    className={className}
+    viewBox="0 0 16 16"
+  >
+    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+  </svg>
+)
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
@@ -22,6 +37,19 @@ function App() {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLScDxGUG5DOhb2aqtYFK-RAu7pjGSx3Uvsna2OQESVUOrR_1Gw/viewform?usp=header', '_blank')
   }
 
+  //Add handler functions for social media links
+  const handleFacebook = () => {
+    window.open('https://www.facebook.com/profile.php?id=61577913536510', '_blank') // Replace with your Facebook URL
+  }
+
+  const handleInstagram = () => {
+    window.open('https://www.instagram.com/reel/DJKeHpjpIIE/?igsh=dmxlOXVheDY5dDdv', '_blank') // Replace with your Instagram URL
+  }
+
+  const handleTikTok = () => {
+    window.open('https://vm.tiktok.com/ZMSsxP7de/', '_blank') // Replace with your TikTok URL
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-rose-50 to-pink-50">
       {/* Header */}
@@ -36,14 +64,14 @@ function App() {
               </div>
             </div>
             <div className="flex space-x-3">
-              <Button 
+              <Button
                 onClick={handleJoinWhatsApp}
                 className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Join WhatsApp
               </Button>
-              <Button 
+              <Button
                 onClick={handleFillProfile}
                 className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
@@ -73,7 +101,7 @@ function App() {
             <Heart className="h-3 w-3 text-red-300 opacity-60" />
           </div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
@@ -92,9 +120,9 @@ function App() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
+                <Button
                   onClick={handleJoinWhatsApp}
                   size="lg"
                   className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl"
@@ -102,7 +130,7 @@ function App() {
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Join WhatsApp Group
                 </Button>
-                <Button 
+                <Button
                   onClick={handleFillProfile}
                   size="lg"
                   className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl"
@@ -127,12 +155,12 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                <img 
-                  src={logoImage} 
-                  alt="Godly Singles Mingle Community" 
+                <img
+                  src={logoImage}
+                  alt="Godly Singles Mingle Community"
                   className="w-full h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-red-900/30 to-transparent"></div>
@@ -155,7 +183,7 @@ function App() {
             <h3 className="text-4xl font-bold mb-4">Physical Meetings</h3>
             <p className="text-xl opacity-90">Join us for in-person fellowship and connection</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="bg-white/10 backdrop-blur-md border-white/20 text-white">
               <CardHeader className="text-center">
@@ -167,7 +195,7 @@ function App() {
                 <p className="text-lg">2-6pm NG Time</p>
               </CardContent>
             </Card>
-            
+
             <Card className="bg-white/10 backdrop-blur-md border-white/20 text-white">
               <CardHeader className="text-center">
                 <MapPin className="h-12 w-12 mx-auto mb-4 text-yellow-300" />
@@ -258,9 +286,9 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <img 
-                src={communityImage} 
-                alt="Christian fellowship and community gathering" 
+              <img
+                src={communityImage}
+                alt="Christian fellowship and community gathering"
                 className="w-full h-96 object-cover rounded-2xl shadow-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-red-900/20 to-transparent rounded-2xl"></div>
@@ -268,15 +296,15 @@ function App() {
                 <Heart className="h-6 w-6 text-red-500 fill-current" />
               </div>
             </div>
-            
+
             <div className="space-y-6">
               <h3 className="text-4xl font-bold text-gray-900">Join Our Growing Community</h3>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Experience the joy of connecting with like-minded believers who are seeking meaningful relationships. 
-                Our community provides a safe space for Christian singles to meet, share their faith journey, and 
+                Experience the joy of connecting with like-minded believers who are seeking meaningful relationships.
+                Our community provides a safe space for Christian singles to meet, share their faith journey, and
                 potentially find their life partner through divine guidance.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Star className="h-5 w-5 text-yellow-500 fill-current" />
@@ -295,9 +323,9 @@ function App() {
                   <span className="text-gray-700">Safe and moderated environment</span>
                 </div>
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
+                <Button
                   onClick={handleJoinWhatsApp}
                   size="lg"
                   className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl"
@@ -305,7 +333,7 @@ function App() {
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Join WhatsApp
                 </Button>
-                <Button 
+                <Button
                   onClick={handleFillProfile}
                   size="lg"
                   className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl"
@@ -336,17 +364,17 @@ function App() {
             <Heart className="h-14 w-14 fill-current" />
           </div>
         </div>
-        
+
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-3xl mx-auto space-y-8">
             <h3 className="text-4xl lg:text-5xl font-bold">Ready to Find Your Godly Match?</h3>
             <p className="text-xl opacity-90 leading-relaxed">
-              Take the first step towards a meaningful relationship rooted in faith. 
+              Take the first step towards a meaningful relationship rooted in faith.
               Join our community today and discover the blessing of godly companionship through divine connection.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 onClick={handleJoinWhatsApp}
                 size="lg"
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl"
@@ -354,7 +382,7 @@ function App() {
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Join WhatsApp Group
               </Button>
-              <Button 
+              <Button
                 onClick={handleFillProfile}
                 size="lg"
                 variant="secondary"
@@ -364,7 +392,7 @@ function App() {
                 Fill Your Profile
               </Button>
             </div>
-            
+
             <p className="text-sm opacity-75 italic">
               "Delight yourself in the Lord, and he will give you the desires of your heart." - Psalm 37:4
             </p>
@@ -384,11 +412,11 @@ function App() {
               </div>
             </div>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Building meaningful relationships through faith, fellowship, and divine guidance. 
+              Building meaningful relationships through faith, fellowship, and divine guidance.
               Join our community of Christian singles seeking godly companionship and eternal love.
             </p>
             <div className="flex justify-center space-x-6">
-              <Button 
+              <Button
                 onClick={handleJoinWhatsApp}
                 variant="ghost"
                 className="text-green-400 hover:text-green-300"
@@ -396,13 +424,40 @@ function App() {
                 <MessageCircle className="mr-2 h-4 w-4" />
                 WhatsApp
               </Button>
-              <Button 
+              <Button
                 onClick={handleFillProfile}
                 variant="ghost"
                 className="text-red-400 hover:text-red-300"
               >
                 <UserPlus className="mr-2 h-4 w-4" />
                 Profile Form
+              </Button>
+            </div>
+            {/* New Social Media Links Section */}
+            <div className="flex justify-center space-x-6">
+              <Button
+                onClick={handleFacebook}
+                variant="ghost"
+                className="text-blue-400 hover:text-blue-300"
+                title="Follow us on Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </Button>
+              <Button
+                onClick={handleInstagram}
+                variant="ghost"
+                className="text-pink-400 hover:text-pink-300"
+                title="Follow us on Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </Button>
+             <Button 
+                onClick={handleTikTok}
+                variant="ghost"
+                className="text-purple-400 hover:text-purple-300"
+                title="Follow us on TikTok"
+              >
+                <TikTokIcon className="h-5 w-5" />
               </Button>
             </div>
             <div className="pt-4 border-t border-gray-800">
